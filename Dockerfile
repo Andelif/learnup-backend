@@ -20,7 +20,7 @@ COPY . .
 RUN chmod -R 777 storage bootstrap/cache
 
 # Expose port 9000
-EXPOSE 9000
+EXPOSE 8080
 
 # Add entrypoint script
 COPY entrypoint.sh /usr/local/bin/entrypoint
@@ -29,4 +29,4 @@ RUN chmod +x /usr/local/bin/entrypoint
 # Run the entrypoint script to install Composer dependencies
 ENTRYPOINT ["entrypoint"]
 
-CMD ["php-fpm"]
+

@@ -11,9 +11,12 @@ done
 echo "Installing Composer dependencies..."
 composer install --no-dev --prefer-dist
 
+# Generate app key
+php artisan key:generate
+
 # Run migrations and other necessary commands
 echo "Running Laravel migrations..."
 php artisan migrate --force
 
-# Start PHP-FPM
-exec php-fpm
+# Start Laravel server
+exec php artisan serve --host=0.0.0.0 --port=8080

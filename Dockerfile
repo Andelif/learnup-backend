@@ -1,5 +1,5 @@
 # Use PHP with FPM
-FROM php:8.1-fpm
+FROM php:8.3-fpm
 
 # Set working directory
 WORKDIR /var/www
@@ -8,6 +8,7 @@ WORKDIR /var/www
 RUN apt-get update && apt-get install -y \
     libpq-dev \
     unzip \
+    default-mysql-client \
     && docker-php-ext-install pdo pdo_mysql mysqli
 
 # Install Composer
@@ -20,7 +21,7 @@ COPY . .
 RUN chmod -R 777 storage bootstrap/cache
 
 # Expose port 9000
-EXPOSE 8080
+EXPOSE 9000
 
 # Add entrypoint script
 COPY entrypoint.sh /usr/local/bin/entrypoint
@@ -29,4 +30,4 @@ RUN chmod +x /usr/local/bin/entrypoint
 # Run the entrypoint script to install Composer dependencies
 ENTRYPOINT ["entrypoint"]
 
-
+CMD ["php-fpm"]

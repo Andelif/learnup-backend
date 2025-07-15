@@ -1,7 +1,7 @@
 <?php
-$host = 'switchback.proxy.rlwy.net'; // Change from "localhost" to "mysql" (Docker service name)
+$host = 'mysql.railway.internal'; // Change from "localhost" to "mysql" (Docker service name)
 $username = "root"; // Default MySQL username
-$password = 'XiSbWkhhWLDOHQCAadENepHFRXXYXZQQ'; // Match the MySQL password from Docker Compose
+$password = 'xuUhTMsdFrvdHpfjvrzSSLbrhUyXhRHb'; // Match the MySQL password from Docker Compose
 $database = "railway"; // Database name
 
 // Create a connection
